@@ -30,7 +30,7 @@ const PlayIcon = styled.div`
   transform: translate(-50%, -50%);
   font-size: 48px;
   color: white;
-  opacity: ${({ isHover }) => (isHover ? 1 : 0)}
+  opacity: 0;
   transition: opacity 0.4s ease;
 `;
 export default function Card() {
@@ -43,8 +43,9 @@ export default function Card() {
     >
       <Image src={video} alt="tumb" width={362} height={204} />
       <TextP>Como aumentar sua geração de Leads feat. Traktor</TextP>
-      <PlayIcon>
-        <FontAwesomeIcon icon={faPlay} classname="play_icon" />
+
+      <PlayIcon className={isHover ? "play_icon" : ""}>
+        <FontAwesomeIcon icon={faPlay} />
       </PlayIcon>
     </CardVideo>
   );
