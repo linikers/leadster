@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 const CardVideo = styled.div`
+  position: relative;
   border-radius: 12px;
   max-width: 362px;
   margin: 10px;
@@ -14,8 +15,9 @@ const CardVideo = styled.div`
   overflow: hidden;
   cursor: pointer;
 
-  &:hover .play_icon {
-    opacity: 1;
+  &:hover {
+    opacity: 0.6;
+    color: var(--color-blue-2);
   }
 `;
 
@@ -27,11 +29,11 @@ const PlayIcon = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 48px;
   color: white;
   opacity: 0;
   transition: opacity 0.4s ease;
+  transform: translate(-50%, -50%);
 `;
 export default function Card() {
   const [isHover, setIsHover] = useState(false);
@@ -44,7 +46,7 @@ export default function Card() {
       <Image src={video} alt="tumb" width={362} height={204} />
       <TextP>Como aumentar sua geração de Leads feat. Traktor</TextP>
 
-      <PlayIcon className={isHover ? "play_icon" : ""}>
+      <PlayIcon style={{ opacity: isHover ? 1 : 0 }}>
         <FontAwesomeIcon icon={faPlay} />
       </PlayIcon>
     </CardVideo>
