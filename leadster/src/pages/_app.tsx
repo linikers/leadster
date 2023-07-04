@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
 import { createGlobalStyle } from "styled-components";
+import Modal from "react-modal";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -13,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
   }
 `;
+Modal.setAppElement("#__next");
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

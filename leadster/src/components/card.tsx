@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import video from "../../public/thumbnail.png";
 import Image from "next/image";
+import video from "../../public/thumbnail.png";
+import youtube from "../../public/youtube.jpg";
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import Modal from "react-modal";
 
 const CardVideo = styled.div`
   position: relative;
@@ -24,7 +26,9 @@ const CardVideo = styled.div`
     } */
   }
 `;
-
+// const ButtonModal = styled.button`
+//   padding: 10px 20px;
+// `;
 const TextP = styled.p`
   font-size: 16px;
   font-weight: 500;
@@ -51,25 +55,64 @@ const ImgOver = styled.div`
   background-color: rgba(70, 100, 255, 0.219);
   transition: opacity 0.4s ease;
 `;
+const CustomModal = styled(Modal)`
+  max-width: 320px;
+  max-height: 360px;
+`;
+const ModalTop = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default function Card() {
   const [isHover, setIsHover] = useState(false);
 
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleCard = () => {
+    setOpenModal(true);
+  };
+  const closeModal = () => {
+    setOpenModal(false);
+  };
+
   return (
-    <CardVideo
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      <ImgContainer>
-        <ImgOver style={{ opacity: isHover ? 1 : 0 }} />
-        <Image src={video} alt="tumb" width={362} height={204} />
-      </ImgContainer>
+    <>
+      <CardVideo
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        onClick={handleCard}
+      >
+        <ImgContainer>
+          <ImgOver style={{ opacity: isHover ? 1 : 0 }} />
+          <Image src={video} alt="tumb" width={362} height={204} />
+        </ImgContainer>
 
-      <TextP>Como aumentar sua geração de Leads feat. Traktor</TextP>
+        <TextP>Como aumentar sua geração de Leads feat. Traktor</TextP>
 
-      <PlayIcon style={{ opacity: isHover ? 1 : 0 }}>
-        <FontAwesomeIcon icon={faPlay} />
-      </PlayIcon>
-    </CardVideo>
+        <PlayIcon style={{ opacity: isHover ? 1 : 0 }}>
+          <FontAwesomeIcon icon={faPlay} />
+        </PlayIcon>
+        {/* <ButtonModal>clique</ButtonModal> */}
+      </CardVideo>
+      <CustomModal isOpen={openModal} onRequestClose={closeModal}>
+        <div>
+          <ModalTop>
+            <p>Webinar: Como aumentar sua geração de Leads feat. Traktor</p>
+            <span onClick={closeModal}>X</span>
+            <div>
+              <Image src={youtube} width={306} height={172} />
+              <h3>Descrição</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                vel nisi in lorem consequat sollicitudin. Quisque accumsan lorem
+                et mi pulvinar, quis ultricies elit volutpat. Integer ac lectus
+                et risus consequat lacinia.
+              </p>
+            </div>
+          </ModalTop>
+        </div>
+      </CustomModal>
+    </>
   );
 }

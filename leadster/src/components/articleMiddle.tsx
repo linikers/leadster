@@ -22,6 +22,13 @@ const Menu = styled.div`
   justify-content: center;
 `;
 
+const HR = styled.div`
+  width: 85%;
+  height: 1px;
+  margin: 20px 0;
+  background-color: var(--color-blue-3);
+`;
+
 export default function MiddleArticle() {
   return (
     <Box>
@@ -36,7 +43,7 @@ export default function MiddleArticle() {
           <option value="teste">Data de publicação</option>
         </select>
       </TopMenu>
-
+      <HR />
       <Menu>
         <Card />
         <Card />
@@ -45,6 +52,7 @@ export default function MiddleArticle() {
         <Card />
         <Card />
       </Menu>
+      <HR />
     </Box>
   );
 }
