@@ -55,13 +55,58 @@ const ImgOver = styled.div`
   background-color: rgba(70, 100, 255, 0.219);
   transition: opacity 0.4s ease;
 `;
+
+//modal conf
+
 const CustomModal = styled(Modal)`
-  max-width: 320px;
-  max-height: 360px;
+  border-top: 4px solid var(--color-blue-2);
+  border-radius: 12px;
+  max-width: 30%;
+  max-height: 30%;
+
+  background-color: white;
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 `;
-const ModalTop = styled.div`
+const BoxModal = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const ModalTop = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    color: var(--color-blue-3);
+    padding: 16px 44px;
+    font-size: 22px;
+    text-align: center;
+  }
+  b {
+    color: var(--color-blue-2);
+  }
+  span {
+    margin-bottom: 16px;
+    padding: 2px;
+
+    color: var(--color-blue-3);
+    cursor: pointer;
+  }
+`;
+const ModalFooter = styled.div`
+  color: var(--color-blue-3);
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
+  }
 `;
 
 export default function Card() {
@@ -96,22 +141,24 @@ export default function Card() {
         {/* <ButtonModal>clique</ButtonModal> */}
       </CardVideo>
       <CustomModal isOpen={openModal} onRequestClose={closeModal}>
-        <div>
+        <BoxModal>
           <ModalTop>
-            <p>Webinar: Como aumentar sua geração de Leads feat. Traktor</p>
+            <p>
+              <b>Webinar:</b> Como aumentar sua geração de Leads feat. Traktor
+            </p>
             <span onClick={closeModal}>X</span>
-            <div>
-              <Image src={youtube} width={306} height={172} />
-              <h3>Descrição</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                vel nisi in lorem consequat sollicitudin. Quisque accumsan lorem
-                et mi pulvinar, quis ultricies elit volutpat. Integer ac lectus
-                et risus consequat lacinia.
-              </p>
-            </div>
           </ModalTop>
-        </div>
+          <ModalFooter>
+            <Image src={youtube} alt="video" width={428} height={241} />
+            <h3>Descrição</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+              vel nisi in lorem consequat sollicitudin. Quisque accumsan lorem
+              et mi pulvinar, quis ultricies elit volutpat. Integer ac lectus et
+              risus consequat lacinia.
+            </p>
+          </ModalFooter>
+        </BoxModal>
       </CustomModal>
     </>
   );
