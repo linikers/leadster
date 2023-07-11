@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import video from "../../public/thumbnail.png";
 import youtube from "../../public/youtube.jpg";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
+// import "react-modal-styles.css";
 
 const CardVideo = styled.div`
   position: relative;
@@ -26,9 +27,7 @@ const CardVideo = styled.div`
     } */
   }
 `;
-// const ButtonModal = styled.button`
-//   padding: 10px 20px;
-// `;
+
 const TextP = styled.p`
   font-size: 16px;
   font-weight: 500;
@@ -56,27 +55,28 @@ const ImgOver = styled.div`
   transition: opacity 0.4s ease;
 `;
 
+const HR = styled.div`
+  width: 90%;
+  height: 1px;
+  margin: 6px 0;
+  background-color: var(--color-blue-1);
+`;
 //modal conf
 
-const CustomModal = styled(Modal)`
-  border-top: 4px solid var(--color-blue-2);
-  border-radius: 12px;
-  max-width: 30%;
-  max-height: 30%;
-
-  background-color: white;
-
-  position: absolute;
-  top: 30%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-`;
+const CustomModal = styled(Modal)``;
 const BoxModal = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
+const LineTop = styled.div`
+  width: 97%;
+  height: 3px;
+  background-color: var(--color-blue-2);
+
+  margin-left: auto;
+  margin-right: auto;
+`;
 const ModalTop = styled.div`
   display: flex;
   flex-direction: row;
@@ -101,11 +101,18 @@ const ModalTop = styled.div`
 `;
 const ModalFooter = styled.div`
   color: var(--color-blue-3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   h3 {
     font-size: 18px;
+    margin: 2rem;
   }
   p {
     font-size: 16px;
+    margin: 2rem;
   }
 `;
 
@@ -138,10 +145,40 @@ export default function Card() {
         <PlayIcon style={{ opacity: isHover ? 1 : 0 }}>
           <FontAwesomeIcon icon={faPlay} />
         </PlayIcon>
-        {/* <ButtonModal>clique</ButtonModal> */}
       </CardVideo>
-      <CustomModal isOpen={openModal} onRequestClose={closeModal}>
+      <CustomModal
+        isOpen={openModal}
+        onRequestClose={closeModal}
+        overlayClassName="custom-modal-overlay"
+        shouldFocusAfterRender={false}
+        style={{
+          overlay: {
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+
+            border: "none",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            alignItems: "center",
+          },
+          content: {
+            position: "absolute",
+            maxWidth: "30%",
+
+            border: "none",
+            borderRadius: "12px",
+            background: "white",
+
+            transform: "translate(108%, 0%)",
+          },
+        }}
+        contentLabel=""
+      >
         <BoxModal>
+          <LineTop />
           <ModalTop>
             <p>
               <b>Webinar:</b> Como aumentar sua geração de Leads feat. Traktor
@@ -151,6 +188,7 @@ export default function Card() {
           <ModalFooter>
             <Image src={youtube} alt="video" width={428} height={241} />
             <h3>Descrição</h3>
+            <HR />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
               vel nisi in lorem consequat sollicitudin. Quisque accumsan lorem

@@ -53,6 +53,13 @@ export default function MiddleArticle() {
         <Card />
       </Menu>
       <HR />
+      <div>
+        <span>Página</span>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+      </div>
     </Box>
   );
 }

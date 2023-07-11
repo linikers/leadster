@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import { createGlobalStyle } from "styled-components";
 import Modal from "react-modal";
+import "../styles/fonts.css";
 
 const GlobalStyle = createGlobalStyle`
   :root {
