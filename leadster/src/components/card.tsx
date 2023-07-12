@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
-// import "react-modal-styles.css";
 
 const CardVideo = styled.div`
   position: relative;
@@ -20,11 +19,6 @@ const CardVideo = styled.div`
 
   &:hover {
     color: var(--color-blue-2);
-    /* .image_overlay {
-      opacity: 1;
-      transition: opacity 0.4s ease;
-      position: absolute;
-    } */
   }
 `;
 
