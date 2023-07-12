@@ -28,6 +28,13 @@ const Box = styled.div`
     color: var(--color-blue-3);
   }
 `;
+const FooterContact = styled.div`
+  padding: 16px;
+  h3 {
+    color: var(--color-blue-3);
+  }
+`;
+
 export default function Footer() {
   return (
     <FooterBox>
@@ -58,7 +65,8 @@ export default function Footer() {
             "Materiais Gratuitos",
           ]}
         />
-        <div>
+        <FooterContact>
+          <h3>Siga a Leadster</h3>
           <Social />
 
           <ContactBox>
@@ -71,7 +79,7 @@ export default function Footer() {
               <a>(44)8899-3322</a>
             </Box>
           </ContactBox>
-        </div>
+        </FooterContact>
       </FooterBar>
     </FooterBox>
   );
