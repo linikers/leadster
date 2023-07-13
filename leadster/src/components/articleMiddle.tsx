@@ -28,6 +28,21 @@ const HR = styled.div`
   margin: 20px 0;
   background-color: var(--color-blue-3);
 `;
+const BoxArticle = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const BoxPag = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const BtnPag = styled.div`
+  margin: 10px;
+
+  color: var(--color-blue-3);
+
+  cursor: pointer;
+`;
 
 export default function MiddleArticle() {
   return (
@@ -53,13 +68,15 @@ export default function MiddleArticle() {
         <Card />
       </Menu>
       <HR />
-      <div>
+      <BoxArticle>
         <span>Página</span>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-      </div>
+        <BoxPag>
+          <BtnPag>1</BtnPag>
+          <BtnPag>2</BtnPag>
+          <BtnPag>3</BtnPag>
+          <BtnPag>4</BtnPag>
+        </BoxPag>
+      </BoxArticle>
     </Box>
   );
 }
