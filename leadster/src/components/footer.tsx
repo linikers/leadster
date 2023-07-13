@@ -34,6 +34,16 @@ const FooterContact = styled.div`
     color: var(--color-blue-3);
   }
 `;
+const Adress = styled.div`
+  color: var(--color-blue-3);
+  margin: 20px;
+`;
+const HR = styled.div`
+  width: 85%;
+  height: 1px;
+  margin: 20px 0;
+  background-color: var(--color-blue-3);
+`;
 
 export default function Footer() {
   return (
@@ -81,6 +91,13 @@ export default function Footer() {
           </ContactBox>
         </FooterContact>
       </FooterBar>
+      <HR />
+      <Adress>
+        <span>
+          Rua José Loureiro, 464 - Centro - Curitiba - PR - CEP - 80010-000 -
+          Termos de uso
+        </span>
+      </Adress>
     </FooterBox>
   );
 }
